@@ -41,7 +41,7 @@ define Package/hcxdumptool/description
   and check if wlan-key or plainmasterkey was transmitted unencrypted.
 endef
 
-define Package/hcxtools/postinst
+define Package/hcxdumptool/postinst
 #!/bin/sh
 # Let's fix the Pineapples damn PATH environment variable permanently!
 echo 'export PATH=/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin' >> /etc/profile
