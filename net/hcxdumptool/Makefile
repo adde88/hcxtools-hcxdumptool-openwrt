@@ -46,7 +46,7 @@ define Package/hcxdumptool/postinst
 # Let's fix the Pineapples damn PATH environment variable permanently!
 cookie="/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin"
 if [ "$PATH" != "$cookie" ]; then
-        echo 'export PATH="$cookie"' >> /etc/profile
+        echo 'export PATH=/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin' >> /etc/profile
 fi
 endef
 
