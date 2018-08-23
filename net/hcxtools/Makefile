@@ -44,6 +44,7 @@ define Package/hcxtools/postinst
 cookie="/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin"
 if [ "$PATH" != "$cookie" ]; then
 	echo 'export PATH="/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin"' >> /etc/profile
+	source /etc/profile
 fi
 endef
 
