@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxdumptool
 PKG_VERSION:=4.2.1
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxdumptool-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -44,7 +44,10 @@ endef
 define Package/hcxdumptool/postinst
 #!/bin/sh
 # Let's fix the Pineapples damn PATH environment variable permanently!
-echo 'export PATH=/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin' >> /etc/profile
+cookie="/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin"
+if [ "$PATH" != "$cookie" ]; then
+        echo 'export PATH="$cookie"' >> /etc/profile
+fi
 endef
 
 define Package/hcxdumptool/install
