@@ -38,17 +38,15 @@ define Package/hcxtools/description
   for the use with latest hashcat or John the Ripper.
 endef
 
-MAKE_FLAGS += \
-        $(TARGET_CONFIGURE_OPTS)
-
-define Build/Compile
-        $(MAKE) -C $(PKG_BUILD_DIR)/ \
-                $(TARGET_CONFIGURE_OPTS)
+define Package/hcxtools/postinst
+#!/bin/sh
+# Let's fix the Pineapples damn PATH environment variable permanently!
+echo 'export PATH=/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin' >> /etc/profile
 endef
-
 
 define Package/hcxtools/install
 	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_DIR) $(1)/etc/
 	$(CP) $(PKG_BUILD_DIR)/hcxpcaptool	$(1)/usr/sbin/
 	$(CP) $(PKG_BUILD_DIR)/hcxhashcattool	$(1)/usr/sbin/
 	$(CP) $(PKG_BUILD_DIR)/wlanhcx2cap	$(1)/usr/sbin/

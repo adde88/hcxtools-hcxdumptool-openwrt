@@ -9,13 +9,13 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxdumptool
 PKG_VERSION:=4.2.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxdumptool-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ZerBea/hcxdumptool.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_VERSION:=9327c87e1dfe4e13dc75a61b6cd31008520bcdf8
+PKG_SOURCE_VERSION:=c79a67caa175db2ad52fa5aba165e470e7ee879a
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=Andreas Nilsen <adde88@gmail.com.com>
@@ -41,14 +41,11 @@ define Package/hcxdumptool/description
   and check if wlan-key or plainmasterkey was transmitted unencrypted.
 endef
 
-MAKE_FLAGS += \
-        $(TARGET_CONFIGURE_OPTS)
-
-define Build/Compile
-        $(MAKE) -C $(PKG_BUILD_DIR)/ \
-                $(TARGET_CONFIGURE_OPTS)
+define Package/hcxtools/postinst
+#!/bin/sh
+# Let's fix the Pineapples damn PATH environment variable permanently!
+echo 'export PATH=/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin' >> /etc/profile
 endef
-
 
 define Package/hcxdumptool/install
 	$(INSTALL_DIR) $(1)/usr/sbin
