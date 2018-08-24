@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxdumptool
 PKG_VERSION:=4.2.1
-PKG_RELEASE:=4
+PKG_RELEASE:=5
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxdumptool-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -41,24 +41,14 @@ define Package/hcxdumptool/description
   and check if wlan-key or plainmasterkey was transmitted unencrypted.
 endef
 
-define Package/hcxdumptool/postinst
-#!/bin/sh
-# Let's fix the Pineapples damn PATH environment variable permanently!
-cookie="/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin"
-if [ "$PATH" != "$cookie" ]; then
-        echo 'export PATH=/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin' >> /etc/profile
-	source /etc/profile
-fi
-endef
-
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/ \
 		$(TARGET_CONFIGURE_OPTS)
 endef
 
 define Package/hcxdumptool/install
-	$(INSTALL_DIR) $(1)/usr/sbin
-	$(CP) $(PKG_BUILD_DIR)/hcxdumptool $(1)/usr/sbin/
+	$(INSTALL_DIR) $(1)/sbin
+	$(CP) $(PKG_BUILD_DIR)/hcxdumptool $(1)/sbin/
 endef
 
 $(eval $(call BuildPackage,hcxdumptool))

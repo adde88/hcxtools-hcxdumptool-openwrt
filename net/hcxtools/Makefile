@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxtools
 PKG_VERSION:=4.2.1
-PKG_RELEASE:=5
+PKG_RELEASE:=6
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxtools-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -38,42 +38,32 @@ define Package/hcxtools/description
   for the use with latest hashcat or John the Ripper.
 endef
 
-define Package/hcxtools/postinst
-#!/bin/sh
-# Let's fix the Pineapples damn PATH environment variable permanently!
-cookie="/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin"
-if [ "$PATH" != "$cookie" ]; then
-	echo 'export PATH="/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin"' >> /etc/profile
-	source /etc/profile
-fi
-endef
-
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/ \
 		$(TARGET_CONFIGURE_OPTS)
 endef
 
 define Package/hcxtools/install
-	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_DIR) $(1)/etc/
-	$(CP) $(PKG_BUILD_DIR)/hcxpcaptool	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/hcxhashcattool	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhcx2cap	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhc2hcx	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanwkp2hcx	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhcx2essid	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhcx2ssid	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhcxinfo	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhcxmnc	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhashhcx	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhcxcat	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanpmk2hcx	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanjohn2hcx	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlancow2hcxpmk	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhcx2john	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhcx2psk	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlancap2wpasec	$(1)/usr/sbin/
-	$(CP) $(PKG_BUILD_DIR)/whoismac		$(1)/usr/sbin/
+	$(INSTALL_DIR) $(1)/sbin
+	$(INSTALL_DIR) $(1)/etc
+	$(CP) $(PKG_BUILD_DIR)/hcxpcaptool	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/hcxhashcattool	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhcx2cap	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhc2hcx	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanwkp2hcx	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhcx2essid	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhcx2ssid	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhcxinfo	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhcxmnc	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhashhcx	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhcxcat	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanpmk2hcx	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanjohn2hcx	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlancow2hcxpmk	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhcx2john	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlanhcx2psk	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/wlancap2wpasec	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/whoismac		$(1)/sbin/
 endef
 
 $(eval $(call BuildPackage,hcxtools))
