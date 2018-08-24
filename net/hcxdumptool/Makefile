@@ -9,13 +9,13 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxdumptool
 PKG_VERSION:=4.2.1
-PKG_RELEASE:=3
+PKG_RELEASE:=4
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxdumptool-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ZerBea/hcxdumptool.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_VERSION:=c79a67caa175db2ad52fa5aba165e470e7ee879a
+PKG_SOURCE_VERSION:=db716e3b97b207c1e814f7a94b6cc4a437c0aa6f
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=Andreas Nilsen <adde88@gmail.com.com>
@@ -49,6 +49,11 @@ if [ "$PATH" != "$cookie" ]; then
         echo 'export PATH=/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin' >> /etc/profile
 	source /etc/profile
 fi
+endef
+
+define Build/Compile
+	$(MAKE) -C $(PKG_BUILD_DIR)/ \
+		$(TARGET_CONFIGURE_OPTS)
 endef
 
 define Package/hcxdumptool/install

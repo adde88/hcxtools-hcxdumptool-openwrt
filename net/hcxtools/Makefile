@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxtools
 PKG_VERSION:=4.2.1
-PKG_RELEASE:=4
+PKG_RELEASE:=5
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxtools-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -46,6 +46,11 @@ if [ "$PATH" != "$cookie" ]; then
 	echo 'export PATH="/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/usr/sbin:/sd/usr/bin:/sd/bin:/sd/sbin"' >> /etc/profile
 	source /etc/profile
 fi
+endef
+
+define Build/Compile
+	$(MAKE) -C $(PKG_BUILD_DIR)/ \
+		$(TARGET_CONFIGURE_OPTS)
 endef
 
 define Package/hcxtools/install
