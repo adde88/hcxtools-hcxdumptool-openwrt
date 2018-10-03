@@ -9,13 +9,13 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxtools
 PKG_VERSION:=4.2.1
-PKG_RELEASE:=15
+PKG_RELEASE:=16
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxtools-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ZerBea/hcxtools.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_VERSION:=579e46a128de5a477e295af71ba551574c1248f1
+PKG_SOURCE_VERSION:=f38b771c637e6e001f97d9baec02eac051ecd643
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=Andreas Nilsen <adde88@gmail.com.com>
@@ -40,8 +40,7 @@ endef
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/ \
-		$(TARGET_CONFIGURE_OPTS) \
-		CFLAGS="$(TARGET_CFLAGS)"
+		$(TARGET_CONFIGURE_OPTS)
 endef
 
 define Package/hcxtools/install
