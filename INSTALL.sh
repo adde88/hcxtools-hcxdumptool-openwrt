@@ -35,6 +35,7 @@ else
 fi
 #
 # Cleanup
-rm -rf "$HCXTOOLS" "$HCXDUMPTOOL" /tmp/HcxTools
+rm -rf "$HCXTOOLS" "$HCXDUMPTOOL"
+rm -rf /tmp/HcxTools
 echo -e "${RED}Installation completed!"
 exit 0
