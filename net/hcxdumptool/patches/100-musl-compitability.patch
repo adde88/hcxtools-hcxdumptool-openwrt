@@ -1,14 +1,14 @@
 --- a/hcxdumptool.c
 +++ b/hcxdumptool.c
-@@ -34,7 +34,10 @@
- #include <arpa/inet.h>  
- #include <net/if.h>
- #include <arpa/inet.h>
--#include <net/ethernet.h>
+@@ -31,7 +31,10 @@
+ #include <sys/stat.h>
+ #include <sys/ioctl.h>
+ #include <sys/socket.h>
+-#include <arpa/inet.h>  
 +#ifdef __GLIBC__
 +# include <net/ethernet.h>
 +# include <netinet/if_ether.h>
 +#endif
+ #include <net/if.h>
+ #include <arpa/inet.h>
  #include <netpacket/packet.h>
- #include <pthread.h>
- 
