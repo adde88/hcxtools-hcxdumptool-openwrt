@@ -12,8 +12,8 @@ NC='\033[0m'
 # Let's always get the latest version
 mkdir -p /tmp/HcxTools
 wget https://github.com/adde88/hcxtools-hcxdumptool-openwrt/tree/master/bin/ar71xx/packages/base -P /tmp/HcxTools
-HCXDUMPTOOL=`grep -F "hcxdumptool_" /tmp/HcxTools/base | awk {'print $5'} | awk -F'"' {'print $2'}`
-HCXTOOLS=`grep -F "hcxtools_" /tmp/HcxTools/base | awk {'print $5'} | awk -F'"' {'print $2'}`
+HCXDUMPTOOL=`grep -F "hcxdumptool_" /tmp/HcxTools/base | awk {'print $5'} | awk -F'"' {'print $2'} | grep "ar71xx" `
+HCXTOOLS=`grep -F "hcxtools_" /tmp/HcxTools/base | awk {'print $5'} | awk -F'"' {'print $2'} | grep "ar71xx"`
 #
 # Tell the user what's going on...
 echo -e "${RED}Installing: ${NC}hcxdumptool ${RED} and ${NC}hcxtools."
