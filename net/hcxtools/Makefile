@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxtools
 PKG_VERSION:=5.1.0
-PKG_RELEASE:=5
+PKG_RELEASE:=6
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxtools-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
@@ -49,6 +49,8 @@ define Package/hcxtools/install
 	$(INSTALL_DIR) $(1)/etc
 	$(CP) $(PKG_BUILD_DIR)/hcxpcaptool	$(1)/sbin/
 	$(CP) $(PKG_BUILD_DIR)/hcxhashcattool	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/hcxhash2cap	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/hcxpsktool	$(1)/sbin/
 	$(CP) $(PKG_BUILD_DIR)/wlanhcx2cap	$(1)/sbin/
 	$(CP) $(PKG_BUILD_DIR)/wlanhc2hcx	$(1)/sbin/
 	$(CP) $(PKG_BUILD_DIR)/wlanwkp2hcx	$(1)/sbin/
