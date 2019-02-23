@@ -9,13 +9,13 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxdumptool
 PKG_VERSION:=5.1.0
-PKG_RELEASE:=8
+PKG_RELEASE:=10
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxdumptool-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ZerBea/hcxdumptool.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_VERSION:=246986697a80be09998434612097d4e58e1e6a45
+PKG_SOURCE_VERSION:=229a3c5e112a672ec104979ff3e6aefec8cfddcf
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=Andreas Nilsen <adde88@gmail.com.com>
@@ -28,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/hcxdumptool
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libpthread +libpcap
+  DEPENDS:=+libpcap
   TITLE:=hcxdumptool
   URL:=https://github.com/ZerBea/hcxdumptool.git
   SUBMENU:=wireless

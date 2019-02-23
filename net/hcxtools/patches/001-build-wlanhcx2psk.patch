@@ -1,0 +1,11 @@
+--- a/Makefile
++++ b/Makefile
+@@ -44,6 +44,8 @@ whoismac_libs=-lcurl
+ TOOLS+=wlanhcx2john
+ TOOLS+=wlancap2wpasec
+ wlancap2wpasec_libs=-lcurl
++TOOLS+=wlanhcx2psk
++wlanhcx2psk_libs=-lcrypto
+ 
+ .PHONY: build
+ build: $(TOOLS)
