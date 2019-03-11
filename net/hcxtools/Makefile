@@ -8,14 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxtools
-PKG_VERSION:=5.1.3
-PKG_RELEASE:=2
+PKG_VERSION:=5.1.4
+PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxtools-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ZerBea/hcxtools.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_VERSION:=9c5cd83472d12343710ca4d1aeb87b6b7fdddade
+PKG_SOURCE_VERSION:=a8c7f43d4884fedfe8aca11b2a55f7fadacbca09
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=Andreas Nilsen <adde88@gmail.com.com>
