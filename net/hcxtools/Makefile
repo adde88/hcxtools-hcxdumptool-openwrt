@@ -9,16 +9,14 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxtools
 PKG_VERSION:=5.1.4
-PKG_RELEASE:=1
+PKG_RELEASE:=10
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxtools-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ZerBea/hcxtools.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_VERSION:=a8c7f43d4884fedfe8aca11b2a55f7fadacbca09
+PKG_SOURCE_VERSION:=29e89e20b976584015dd9c2e3dc6818af16098b1
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-
-PKG_MAINTAINER:=Andreas Nilsen <adde88@gmail.com.com>
 
 PKG_BUILD_PARALLEL:=1
 
@@ -31,6 +29,7 @@ define Package/hcxtools
   TITLE:= hcxtools
   URL:=https://github.com/ZerBea/hcxtools.git
   SUBMENU:=wireless
+  MAINTAINER:=Andreas Nilsen <adde88@gmail.com>
 endef
 
 define Package/hcxtools/description
@@ -64,7 +63,6 @@ define Package/hcxtools/install
 	$(CP) $(PKG_BUILD_DIR)/wlanhc2hcx	$(1)/sbin/
 	$(CP) $(PKG_BUILD_DIR)/hcxwltool	$(1)/sbin/
 	$(CP) $(PKG_BUILD_DIR)/whoismac		$(1)/sbin/
-	$(CP) $(PKG_BUILD_DIR)/wlanhcx2psk	$(1)/sbin/
 	$(CP) $(PKG_BUILD_DIR)/wlancap2wpasec	$(1)/sbin/
 endef
 
