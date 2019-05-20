@@ -9,13 +9,13 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxtools
 PKG_VERSION:=5.1.4
-PKG_RELEASE:=13
+PKG_RELEASE:=14
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxtools-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ZerBea/hcxtools.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_VERSION:=5c4af454b3e14fb95dd45fd09b7d043290c4e0bb
+PKG_SOURCE_VERSION:=e80ba9d4efe437bace9f4956ef863f3c4230f5ea
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_BUILD_PARALLEL:=1
@@ -64,6 +64,7 @@ define Package/hcxtools/install
 	$(CP) $(PKG_BUILD_DIR)/hcxwltool	$(1)/sbin/
 	$(CP) $(PKG_BUILD_DIR)/whoismac		$(1)/sbin/
 	$(CP) $(PKG_BUILD_DIR)/wlancap2wpasec	$(1)/sbin/
+	$(CP) $(PKG_BUILD_DIR)/usefulscripts/hcxgrep.py	$(1)/sbin/hcxgrep
 endef
 
 $(eval $(call BuildPackage,hcxtools))
