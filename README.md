@@ -1,4 +1,6 @@
 hcxdumptool + hcxtools for Wifi Pineapple  / OpenWRT
+v.5.1.4  
+
 ===================================
 Both tools are originally created by ZerBea (@github)  
 Ported to OpenWRT by: Andreas Nilsen / adde88 (@github) 
