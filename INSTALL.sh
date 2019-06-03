@@ -13,14 +13,14 @@ HCXDUMPTOOL=`grep -F "hcxdumptool_" /tmp/HcxTools/base | awk {'print $5'} | awk 
 HCXTOOLS=`grep -F "hcxtools_" /tmp/HcxTools/base | awk {'print $5'} | awk -F'"' {'print $2'} | grep "ar71xx"`
 #
 # Tell the user what's going on...
-echo -e "Installing: hcxdumptool  and hcxtools."
+echo -e "Installing/upgrading: hcxdumptool  and hcxtools."
 echo -e "Go grab a cup of coffee, this will take a while...\n"
 #
 # Download latest IPK's to temp directory, and then update OPKG repositories.
 cd /tmp
 opkg update
-wget "https://github.com/adde88/hcxtools-hcxdumptool-openwrt/raw/master/bin/ar71xx/packages/base/"$HCXTOOLS""
-wget "https://github.com/adde88/hcxtools-hcxdumptool-openwrt/raw/master/bin/ar71xx/packages/base/"$HCXDUMPTOOL""
+wget "https://github.com/adde88/hcxtools-hcxdumptool-openwrt/raw/master/bin/ar71xx/packages/base/"$HCXTOOLS"" 2&>1 >/dev/null
+wget "https://github.com/adde88/hcxtools-hcxdumptool-openwrt/raw/master/bin/ar71xx/packages/base/"$HCXDUMPTOOL"" 2&>1 >/dev/null
 #
 # Install procedure
 if [ -e /sd ]; then
@@ -34,4 +34,5 @@ fi
 # Cleanup
 rm -rf "$HCXTOOLS" "$HCXDUMPTOOL" /tmp/HcxTools/
 echo -e "Installation completed!"
+echo -e "-Zylla <adde88@gmail.com>"
 exit 0
