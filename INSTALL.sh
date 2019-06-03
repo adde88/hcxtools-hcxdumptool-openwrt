@@ -8,7 +8,7 @@
 #
 # Let's always get the latest version
 mkdir -p /tmp/HcxTools
-wget https://github.com/adde88/hcxtools-hcxdumptool-openwrt/tree/master/bin/ar71xx/packages/base -P /tmp/HcxTools
+wget https://github.com/adde88/hcxtools-hcxdumptool-openwrt/tree/master/bin/ar71xx/packages/base -P /tmp/HcxTools 2&>1 >/dev/null
 HCXDUMPTOOL=`grep -F "hcxdumptool_" /tmp/HcxTools/base | awk {'print $5'} | awk -F'"' {'print $2'} | grep "ar71xx" `
 HCXTOOLS=`grep -F "hcxtools_" /tmp/HcxTools/base | awk {'print $5'} | awk -F'"' {'print $2'} | grep "ar71xx"`
 #
