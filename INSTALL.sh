@@ -5,9 +5,6 @@
 #
 # Starting Install.
 #
-# Variables and colors.
-RED='\033[0;31m'
-NC='\033[0m'
 #
 # Let's always get the latest version
 mkdir -p /tmp/HcxTools
@@ -16,7 +13,7 @@ HCXDUMPTOOL=`grep -F "hcxdumptool_" /tmp/HcxTools/base | awk {'print $5'} | awk 
 HCXTOOLS=`grep -F "hcxtools_" /tmp/HcxTools/base | awk {'print $5'} | awk -F'"' {'print $2'} | grep "ar71xx"`
 #
 # Tell the user what's going on...
-echo -e "${RED}Installing: ${NC}hcxdumptool ${RED} and ${NC}hcxtools."
+echo -e "Installing: hcxdumptool  and hcxtools."
 echo -e "Go grab a cup of coffee, this will take a while...\n"
 #
 # Download latest IPK's to temp directory, and then update OPKG repositories.
@@ -36,5 +33,5 @@ fi
 #
 # Cleanup
 rm -rf "$HCXTOOLS" "$HCXDUMPTOOL" /tmp/HcxTools/
-echo -e "${RED}Installation completed!"
+echo -e "Installation completed!"
 exit 0
