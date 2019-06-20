@@ -10,13 +10,13 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxdumptool
 PKG_VERSION:=5.1.5
-PKG_RELEASE:=1
+PKG_RELEASE:=5
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/hcxdumptool-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ZerBea/hcxdumptool.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_VERSION:=62fc5f14bba7f9b96cc57acb6d64b358ea0cafb1
+PKG_SOURCE_VERSION:=76cd82a75ef0d3e125dea005ff6d8b7549491bb2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_BUILD_PARALLEL:=1
@@ -46,7 +46,7 @@ endef
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/ \
 		$(TARGET_CONFIGURE_OPTS) \
-		CFLAGS="$(TARGET_CFLAGS) -static"
+		CFLAGS="$(TARGET_CFLAGS)"
 endef
 
 define Package/hcxdumptool/install
