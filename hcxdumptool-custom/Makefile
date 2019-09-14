@@ -1,5 +1,4 @@
 #
-# Copyright (C) 2009-2014 OpenWrt.org
 # Copyright (C) 2019 Andreas Nilsen <adde88@gmail.com>
 #
 # This is free software, licensed under the GNU General Public License v2.
@@ -8,34 +7,33 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=hcxdumptool
-PKG_VERSION:=5.1.7
-PKG_RELEASE:=4
+PKG_NAME:=hcxdumptool-custom
+PKG_VERSION:=5.2.2
+PKG_RELEASE:=2
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/hcxdumptool-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ZerBea/hcxdumptool.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_VERSION:=576dbd9d229e7a4a3285cb7f4034172d3676691c
+PKG_SOURCE_VERSION:=5a375ac995240b42ddaa64066b077a311acc8a25
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
-PKG_BUILD_PARALLEL:=1
-
-PKG_USE_MIPS16:=0
+PKG_MAINTAINER:=Andreas Nilsen <adde88@gmail.com>
+PKG_LICENSE:=MIT
+PKG_LICENSE_FILES:=license.txt
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/hcxdumptool
+define Package/hcxdumptool-custom
   SECTION:=net
   CATEGORY:=Network
   DEPENDS:=+libpcap
-  TITLE:=hcxdumptool
-  URL:=https://github.com/ZerBea/hcxdumptool.git
-  SUBMENU:=wireless
-  MAINTAINER:=Andreas Nilsen <adde88@gmail.com>
+  TITLE:=hcxdumptool-custom
+  URL:=https://github.com/ZerBea/hcxdumptool
+  SUBMENU:=Wireless
 endef
 
-define Package/hcxdumptool/description
+define Package/hcxdumptool-custom/description
   Small tool to capture packets from wlan devices. After capturing, upload
   the "uncleaned" cap here (https://wpa-sec.stanev.org/?submit)
   to see if your ap or the client is vulnerable by using common wordlists.
@@ -46,12 +44,12 @@ endef
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/ \
 		$(TARGET_CONFIGURE_OPTS) \
-		CFLAGS="$(TARGET_CFLAGS) -static"
+		CFLAGS="$(TARGET_CFLAGS)"
 endef
 
-define Package/hcxdumptool/install
+define Package/hcxdumptool-custom/install
 	$(INSTALL_DIR) $(1)/sbin
-	$(CP) $(PKG_BUILD_DIR)/hcxdumptool $(1)/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hcxdumptool $(1)/sbin/
 endef
 
-$(eval $(call BuildPackage,hcxdumptool))
+$(eval $(call BuildPackage,hcxdumptool-custom))
