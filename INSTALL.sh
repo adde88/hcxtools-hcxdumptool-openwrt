@@ -68,7 +68,7 @@ do
         display_help
     elif [ "$arg" == "-c" ] || [ "$arg" == "--custom" ]; then
         bleeding_edge
-    else
-        original
     fi
 done
+
+original
