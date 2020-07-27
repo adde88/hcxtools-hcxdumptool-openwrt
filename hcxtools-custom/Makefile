@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxtools-custom
-PKG_VERSION:=5.3.0
-PKG_RELEASE:=12
+PKG_VERSION:=6.0.3
+PKG_RELEASE:=5
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -60,14 +60,12 @@ define Package/hcxtools-custom/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hcxmactool	$(1)/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hcxessidtool	$(1)/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hcxhash2cap	$(1)/sbin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wlanhc2hcx	$(1)/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wlanwkp2hcx	$(1)/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wlanhcxinfo	$(1)/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wlanhcx2ssid	$(1)/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wlanhcxcat	$(1)/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wlanpmk2hcx	$(1)/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wlanjohn2hcx	$(1)/sbin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wlancow2hcxpmk	$(1)/sbin/
 endef
 
 $(eval $(call BuildPackage,hcxtools-custom))

@@ -1,0 +1,6 @@
+[submodule "hcxdumptool-custom/src"]
+	path = hcxdumptool-custom/src
+	url = https://github.com/ZerBea/hcxdumptool
+[submodule "hcxtools-custom/src"]
+	path = hcxtools-custom/src
+	url = https://github.com/ZerBea/hcxtools
