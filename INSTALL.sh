@@ -34,8 +34,8 @@ bleeding_edge() {
   # Let's always get the latest versions
   mkdir -p /tmp/HcxTools
   wget https://github.com/adde88/hcxtools-hcxdumptool-openwrt/tree/openwrt-19.07/bin/packages/mips_24kc/custom -P /tmp/HcxTools 2&>1 >/dev/null
-  HCXDUMPTOOL=`grep -F "hcxdumptool-custom_" /tmp/HcxTools/custom | awk {'print $5'} | awk -F'"' {'print $2'} | grep "mips_24kc" `
-  HCXTOOLS=`grep -F "hcxtools-custom_" /tmp/HcxTools/custom | awk {'print $5'} | awk -F'"' {'print $2'} | grep "mips_24kc"`
+  HCXDUMPTOOL=`grep -F "hcxdumptool-custom_" /tmp/HcxTools/custom | awk {'print $8'} | awk -F'"' {'print $2'} | grep "mips_24kc" `
+  HCXTOOLS=`grep -F "hcxtools-custom_" /tmp/HcxTools/custom | awk {'print $8'} | awk -F'"' {'print $2'} | grep "mips_24kc"`
   #
   # Tell the user what's going on...
   echo -e "Installing: hcxdumptool and hcxtools, custom bleeding-edge versions from @adde88"
