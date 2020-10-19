@@ -16,7 +16,7 @@ display_help() {
 }
 
 original(){
-  echo -e "Installing: hcxdumptool and hcxtools, original version from openwrt repos."
+  echo -e "Installing: hcxdumptool and hcxtools, original version from official OpenWRT repositories."
   opkg update
   if [ -e /sd ]; then
           # Nano install (Let's use the SD-card, if it exists)
@@ -25,7 +25,7 @@ original(){
           # Tetra install / general install.
           opkg install hcxdumptool hcxtools --force-overwrite
   fi
-  echo -e "Finished installing hcxdumptool and hcxtools (original versions)."
+  echo -e "Finished installing hcxdumptool and hcxtools (official versions from OpenWRT)."
   echo -e "-@adde88"
   exit 0
 }
@@ -38,7 +38,7 @@ bleeding_edge() {
   HCXTOOLS=`grep -F "hcxtools-custom_" /tmp/HcxTools/custom | awk {'print $8'} | awk -F'"' {'print $2'} | grep "mips_24kc"`
   #
   # Tell the user what's going on...
-  echo -e "Installing: hcxdumptool and hcxtools, custom bleeding-edge versions from @adde88"
+  echo -e "Installing: hcxdumptool and hcxtools (custom bleeding-edge v6.1.3, from @adde88)"
   #
   # Download latest IPK's to temp directory, and then update OPKG repositories.
   cd /tmp
@@ -57,7 +57,7 @@ bleeding_edge() {
   #
   # Cleanup
   rm -rf "$HCXTOOLS" "$HCXDUMPTOOL" /tmp/HcxTools/
-  echo -e "Finished installing hcxdumptool and hcxtools (custom bleeding-edge versions)."
+  echo -e "Finished installing hcxdumptool and hcxtools (custom bleeding-edge v6.1.3)."
   echo -e "-@adde88"
   exit 0
 }
