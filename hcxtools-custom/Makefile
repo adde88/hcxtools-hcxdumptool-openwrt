@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxtools-custom
-PKG_VERSION:=6.1.4
+PKG_VERSION:=6.1.5
 PKG_RELEASE:=3
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -26,7 +26,7 @@ define Package/hcxtools-custom
   DEPENDS:=+libpthread +libpcap +zlib +libcurl +libopenssl
   TITLE:=hcxtools-custom
   URL:=https://github.com/ZerBea/hcxtools
-  SUBMENU:=wireless
+  SUBMENU:=Wireless
 endef
 
 define Package/hcxtools-custom/description

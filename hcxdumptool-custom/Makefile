@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hcxdumptool-custom
-PKG_VERSION:=6.1.4
-PKG_RELEASE:=2
+PKG_VERSION:=6.1.5
+PKG_RELEASE:=3
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -26,7 +26,7 @@ define Package/hcxdumptool-custom
   DEPENDS:=+libpcap +libopenssl
   TITLE:=hcxdumptool-custom
   URL:=https://github.com/ZerBea/hcxdumptool
-  SUBMENU:=wireless
+  SUBMENU:=Wireless
 endef
 
 define Package/hcxdumptool-custom/description
