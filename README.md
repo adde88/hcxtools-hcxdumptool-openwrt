@@ -1,7 +1,8 @@
-## hcxdumptool + hcxtools 6.1.5 for Wifi Pineapple MK7 
+## hcxdumptool + hcxtools (v6.1.5)
+## For Wifi Pineapple MK7 
 #### OpenWRT 19.07 - MIPSEL (ramips/mt7628)  
 
-===================================  
+===================================
 Both tools are originally created by @ZerBea  
 Ported to OpenWRT by: Andreas Nilsen / @adde88
 
