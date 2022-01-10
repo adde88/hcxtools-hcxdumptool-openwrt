@@ -1,0 +1,9 @@
+if PACKAGE_hcxtools-custom
+
+comment "Complete hcxtools package"
+
+config HCXTOOLS_FULL
+    bool "Build and combine all the tools in one full package"
+    default n
+
+endif

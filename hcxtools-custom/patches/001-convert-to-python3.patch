@@ -1,0 +1,17 @@
+--- a/src-hcxtools-custom/usefulscripts/hcxgrep.py
++++ b/src-hcxtools-custom/usefulscripts/hcxgrep.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python2
++#!/usr/bin/env python3
+ '''
+ greps inside hccapx/pmkid structs by essid, mac_ap or mac_sta
+ 
+@@ -9,7 +9,7 @@ Redistribution and use in source and bin
+ modification, are permitted.
+ '''
+ 
+-from __future__ import print_function
++
+ import argparse
+ import os
+ import sys

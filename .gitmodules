@@ -1,6 +1,9 @@
-[submodule "hcxdumptool-custom/src"]
-	path = hcxdumptool-custom/src
+[submodule "hcxtools-custom/files/src-hcxdumptool-custom"]
+	path = hcxtools-custom/files/src-hcxdumptool-custom
 	url = https://github.com/ZerBea/hcxdumptool
-[submodule "hcxtools-custom/src"]
-	path = hcxtools-custom/src
+[submodule "hcxtools-custom/files/src-hcxtools-custom"]
+	path = hcxtools-custom/files/src-hcxtools-custom
 	url = https://github.com/ZerBea/hcxtools
+[submodule "hcxtools-custom/files/src-hcxlabtools"]
+	path = hcxtools-custom/files/src-hcxlabtools
+	url = https://github.com/ZerBea/wifi_laboratory
